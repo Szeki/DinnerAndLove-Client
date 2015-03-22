@@ -1,0 +1,4 @@
+D:\Projects\DinnerAndLove.Client\DinnerAndLove.Client.Model\bin\Debug\DinnerAndLove.Client.Model.dll
+D:\Projects\DinnerAndLove.Client\DinnerAndLove.Client.Model\bin\Debug\DinnerAndLove.Client.Model.pdb
+D:\Projects\DinnerAndLove.Client\DinnerAndLove.Client.Model\obj\Debug\DinnerAndLove.Client.Model.dll
+D:\Projects\DinnerAndLove.Client\DinnerAndLove.Client.Model\obj\Debug\DinnerAndLove.Client.Model.pdb
