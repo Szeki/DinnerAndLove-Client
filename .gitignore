@@ -5,3 +5,9 @@
 .vs/DinnerAndLove.Client/v14/vbcs.cache/edbres00001.jrs
 .vs/DinnerAndLove.Client/v14/vbcs.cache/edbres00002.jrs
 .vs/DinnerAndLove.Client/v14/vbcs.cache/storage.ide
+DinnerAndLove.Client.Console/obj/
+DinnerAndLove.Client.Wpf/obj/
+DinnerAndLove.Client.Model/obj/
+DinnerAndLove.Client.Console/bin/
+DinnerAndLove.Client.Wpf/bin/
+DinnerAndLove.Client.Model/bin/
