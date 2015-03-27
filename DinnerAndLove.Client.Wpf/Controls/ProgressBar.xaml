@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="DinnerAndLove.Client.Wpf.Controls.LoadingProgressControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="Auto" Width="Auto" Background="Transparent"
+             IsVisibleChanged="HandleVisibleChanged">
+    <Grid x:Name="LayoutRoot"
+          ToolTip="Loading...."
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center">
+        <Canvas RenderTransformOrigin="0.5,0.5"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="{Binding Path=CanvasSize, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                Height="{Binding Path=CanvasSize, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                Loaded="HandleLoaded"
+                Unloaded="HandleUnloaded"  >
+            <Ellipse x:Name="C0"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="1.0"/>
+            <Ellipse x:Name="C1"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.9"/>
+            <Ellipse x:Name="C2"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.8"/>
+            <Ellipse x:Name="C3"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.7"/>
+            <Ellipse x:Name="C4"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.6"/>
+            <Ellipse x:Name="C5"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.5"/>
+            <Ellipse x:Name="C6"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.4"/>
+            <Ellipse x:Name="C7"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.3"/>
+            <Ellipse x:Name="C8"
+                     Width="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Height="{Binding Path=ProgressCircleDiameter, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Fill="{Binding Path=ProgressCircleFillColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                     Canvas.Left="0" Canvas.Top="0"
+                     Stretch="Fill"
+                     Opacity="0.2"/>
+            <Canvas.RenderTransform>
+                <RotateTransform x:Name="SpinnerRotate"
+                     Angle="0" />
+            </Canvas.RenderTransform>
+        </Canvas>
+    </Grid>
+</UserControl>

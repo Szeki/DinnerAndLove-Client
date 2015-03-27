@@ -59,7 +59,8 @@
                     Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
                     VerticalContentAlignment="Center"
                     VerticalAlignment="Center"
-                    Height="25">
+                    Height="25"
+                    Text="gabor_szekeres1@epam.com">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
                             <Style.Triggers>

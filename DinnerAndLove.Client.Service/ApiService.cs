@@ -91,6 +91,33 @@ namespace DinnerAndLove.Client.Service
             return Task.Factory.StartNew(() => ExecuteRequest(path, useAuthentication));
         }
 
+        public ApiResponse ExecutePutRequest(string path, string jsonData)
+        {
+            var request = WebRequest.Create(string.Format("{0}/{1}", RequestBaseAddress, path));
+
+            request.Headers.Add("X-WSSE", CreateAuthenticationHeader(_currentUsername, _currentUserEncodedPassword));
+            request.Method = "PUT";
+            request.ContentType = "application/json";
+            request.ContentLength = jsonData.Length;
+
+            using (var writeStream = new StreamWriter(request.GetRequestStream()))
+            {
+                writeStream.Write(jsonData);
+            }
+
+            using (var reader = new StreamReader(request.GetResponse().GetResponseStream()))
+            {
+                var result = reader.ReadToEnd();
+
+                return JsonConvert.DeserializeObject<ApiResponse>(result);
+            }
+        }
+
+        public Task<ApiResponse> ExecutePutRequestAsync(string path, string jsonData)
+        {
+            return Task.Factory.StartNew(() => ExecutePutRequest(path, jsonData));
+        }
+
         #endregion
 
         #region Private Methods

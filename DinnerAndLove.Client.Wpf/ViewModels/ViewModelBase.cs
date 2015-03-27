@@ -1,4 +1,5 @@
-﻿using DinnerAndLove.Client.Model;
+﻿using System.Linq;
+using DinnerAndLove.Client.Model;
 using System;
 using System.Collections.Generic;
 
@@ -12,8 +13,10 @@ namespace DinnerAndLove.Client.Wpf.ViewModels
         #region Members
 
         protected static List<ViewModelBase> _viewModels;
+        static bool _isLoadingProgressVisible;
 
         static User _currentUser;
+        static List<Tuple<ViewModelBase, Type>> _events;
 
         #endregion
 
@@ -22,6 +25,8 @@ namespace DinnerAndLove.Client.Wpf.ViewModels
         static ViewModelBase()
         {
             _viewModels = new List<ViewModelBase>();
+            _events = new List<Tuple<ViewModelBase, Type>>();
+
             ApiService = new ApiService();
         }
 
@@ -37,6 +42,7 @@ namespace DinnerAndLove.Client.Wpf.ViewModels
         ~ViewModelBase()
         {
             _viewModels.Remove(this);
+            _events.RemoveAll(item => item.Item1 == this);
         }
 
         #endregion
@@ -47,6 +53,23 @@ namespace DinnerAndLove.Client.Wpf.ViewModels
         {
             get;
             private set;
+        }
+
+        public bool IsLoadingProgressVisible
+        {
+            get
+            {
+                return _isLoadingProgressVisible;
+            }
+            protected set
+            {
+                if (_isLoadingProgressVisible == value) return;
+
+                _isLoadingProgressVisible = value;
+
+                RaisePropertyChanged(() => IsLoadingProgressVisible);
+                RaiseStaticPropertyChanged("IsLoadingProgressVisible");
+            }
         }
 
         public User CurrentUser
@@ -73,6 +96,7 @@ namespace DinnerAndLove.Client.Wpf.ViewModels
         public void Dispose()
         {
             _viewModels.Remove(this);
+            _events.RemoveAll(item => item.Item1 == this);
         }
 
         #endregion
@@ -85,6 +109,36 @@ namespace DinnerAndLove.Client.Wpf.ViewModels
             {
                 viewModel.RaisePropertyChanged(propertyName);
             }
+        }
+
+        protected void RaiseChangedEvent<T>(T eventType) where T : ChangedEventBase
+        {
+            foreach (var eventItem in _events.Where(item => item.Item2 == typeof(T)))
+            {
+                eventItem.Item1.OnEventRaised(this, eventType);
+            }
+        }
+
+        protected void SubscribeEvent<T>() where T : ChangedEventBase
+        {
+            if (!_events.Any(item => item.Item1 == this && item.Item2 == typeof(T)))
+            {
+                _events.Add(new Tuple<ViewModelBase, Type>(this, typeof(T)));
+            }
+        }
+
+        protected virtual void OnEventRaised(ViewModelBase sender, ChangedEventBase eventArgs)
+        {
+        }
+
+        protected void ShowLoadingProgress()
+        {
+            IsLoadingProgressVisible = true;
+        }
+
+        protected void HideLoadingProgress()
+        {
+            IsLoadingProgressVisible = false;
         }
 
         #endregion
